@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Modify Supplies</title>
+  <style>
+    :root {
+      --background-color: #081820;
+      --background-light-color: #1a2930;
+      --text-color: #e0f8d0;
+      --button-bg-color: #346856;
+      --button-hover-color: #88c070;
+      --white-color: #fff;
+      --border-color: #ccc;
+      --border-radius: 5px;
+      --font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      margin: 20px;
+      background-image:  linear-gradient(var(--background-light-color) 2px, transparent 2px), linear-gradient(90deg, var(--background-light-color) 2px, transparent 2px), linear-gradient(var(--background-light-color) 1px, transparent 1px), linear-gradient(90deg, var(--background-light-color) 1px, var(--background-color) 1px);
+      background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+      background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    }
+
+    form {
+      display: block; /* Ensure form takes full width */
+      max-width: 300px; /* Limit form width */
+      margin: 0 auto; /* Center the form horizontally */
+      padding: 20px;
+      background-color: var(--background-light-color); /* Light background color */
+      border-radius: var(--border-radius);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block; /* Make label display on a new line */
+      margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="submit"] {
+      width: calc(100%); /* Make input fields full width with padding and border included */
+      padding: 10px;
+      border: 1px solid var(--border-color); /* Light grey border */
+      border-radius: var(--border-radius);
+      margin-bottom: 10px;
+      box-sizing: border-box; /* Include padding and border in element's total width and height */
+    }
+
+    input[type="submit"] {
+      background-color: var(--button-bg-color);
+      border: none;
+      color: var(--white-color);
+      padding: 10px 0; /* Reduce top and bottom padding to align with input fields */
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: var(--border-radius);
+    }
+
+    input[type="submit"]:hover {
+      background-color: var(--button-hover-color);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Modify Supplies</h1>
+  <form action="/modify" method="post">
+    <label for="supply_key">Supply Key</label>
+    <select id="supply_key" name="supply_key">
+      <option value="meat">Meat</option>
+      <option value="vegetables">Vegetables</option>
+      <option value="fruits">Fruits</option>
+      <option value="water">Water</option>
+      <option value="antibiotics">Antibiotics</option>
+      <option value="analgesics">Analgesics</option>
+      <option value="bandages">Bandages</option>
+    </select>
+    <label for="new_value">New Value</label>
+    <input type="text" id="new_value" name="new_value">
+    <input type="submit" value="Submit">
+  </form>
+</body>
+
+</html>

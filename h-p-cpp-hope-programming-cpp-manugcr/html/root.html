@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>SURVIVAL SERVER</title>
+    <style>
+      :root {
+        --background-color: #081820;
+        --background-light-color: #131e23;
+        --background-lighter-color: #132a24;
+        --text-color: #e0f8d0;
+        --button-bg-color: #346856;
+        --button-hover-color: #88c070;
+
+        --white-color: #fff;
+        --black-color: #000;
+
+        --font-family: "Farfetch Basis", "Helvetica Neue", Arial, sans-serif;
+        --green: #20ff4d;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        text-align: center;
+        background-image:  linear-gradient(var(--background-light-color) 2px, transparent 2px), linear-gradient(90deg, var(--background-light-color) 2px, transparent 2px), linear-gradient(var(--background-light-color) 1px, transparent 1px), linear-gradient(90deg, var(--background-light-color) 1px, var(--background-color) 1px);
+        background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+        background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+      }
+
+      .button {
+        background-color: var(--button-bg-color);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        opacity: 1;
+      }
+
+      .button:hover {
+        background-color: var(--button-hover-color);
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      .radar {
+        background:
+          radial-gradient(center, rgba(var(--green), 0.3) 0%, rgba(var(--green), 0) 75%),
+          repeating-radial-gradient(rgba(var(--green), 0) 5.8%, rgba(var(--green), 0) 18%, rgba(var(--green), 1) 18.6%, rgba(var(--green), 0) 18.9%),
+          linear-gradient(90deg, rgba(var(--green), 0) 49.5%, rgba(var(--green), 1) 50%, rgba(var(--green), 1) 50%, rgba(var(--green), 0) 50.2%),
+          linear-gradient(0deg, rgba(var(--green), 0) 49.5%, rgba(var(--green), 1) 50%, rgba(var(--green), 1) 50%, rgba(var(--green), 0) 50.2%);
+        width: 50vw; /* Reduce width */
+        height: 50vw; /* Reduce height */
+        max-width: 500px; /* Limit maximum width */
+        max-height: 500px; /* Limit maximum height */
+        position: absolute; /* Position absolutely */
+        left: 50%; /* Center horizontally */
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%); /* Move to the middle */
+        border-radius: 50%;
+        border: 0.2rem solid var(--green);
+        overflow: hidden;
+      }
+
+
+      .radar:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: blips 5s infinite;
+        animation-timing-function: linear;
+        animation-delay: 1.4s;
+      }
+
+      .radar:after {
+        content: ' ';
+        display: block;
+        background-image: linear-gradient( 44deg, rgba(0, 255, 51, 0) 50%, rgba(0, 255, 51, 1) 100%);
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: radar-beam 5s infinite;
+        animation-timing-function: linear;
+        transform-origin: bottom right;
+        border-radius: 100% 0 0 0;
+      }
+
+      /* Dot style */
+      .dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-color: var(--green);
+        border-radius: 50%;
+        animation: blink 2s infinite; /* Blinking animation */
+        /* Specify position */
+        top: 20%;
+        left: 50%;
+        /* Center the dot */
+        transform: translate(-50%, -50%);
+      }
+
+      /* Apply random animation duration and delay to each dot */
+      .dot:nth-child(2) {
+        animation-duration: 5s;
+        animation-delay: 2s;
+      }
+
+      .dot:nth-child(3) {
+        animation-duration: 5s;
+        animation-delay: 1s;
+      }
+
+      @keyframes radar-beam {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Keyframe animation for blinking */
+      @keyframes blink {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>SURVIVAL SERVER</h1>
+    <p>Don't panic. It only attracts zombies.</p>
+    <a href="/supplies" class="button">View Supplies</a>
+    <a href="/alerts" class="button">View Alerts</a>
+    <a href="/emergencies" class="button">View Emergencies</a>
+    <a href="/modify_supply" class="button">Modify Supplies</a>
+    <div class="radar">
+      <!-- Green dots -->
+      <div class="dot" style="top: 20%; left: 50%;"></div>
+      <div class="dot" style="top: 70%; left: 30%;"></div>
+      <div class="dot" style="top: 40%; left: 80%;"></div>
+    </div>
+  </body>
+
+</html>
