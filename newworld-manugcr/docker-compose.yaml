@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    environment:
+      - DB_HOST=db
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_PORT=${DB_PORT}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.api.rule=Host(`api`)"
+      - "traefik.http.routers.api.entrypoints=web"
+      - "traefik.http.services.api.loadbalancer.server.port=${API_PORT}"
+    depends_on:
+      - db
+      - cpp-server
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    env_file:
+      - ./.env
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  traefik:
+    image: traefik:v2.8
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  cpp-server:
+    build:
+      context: /home/manu/facultad/so2/h-p-cpp-hope-programming-cpp-manugcr
+      dockerfile: Dockerfile
+    ports:
+      - "${CPPSERVER_PORT}:${CPPSERVER_PORT}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.cpp-server.rule=Host(`cpp-server`)"
+      - "traefik.http.routers.cpp-server.entrypoints=web"
+      - "traefik.http.services.cpp-server.loadbalancer.server.port=${CPPSERVER_PORT}"
+    depends_on:
+      - db
+
+volumes:
+  db_data:

@@ -1,0 +1,465 @@
+basePath: /
+definitions:
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutMessage:
+    properties:
+      status:
+        type: string
+      total:
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutRequest:
+    properties:
+      orderItems:
+        items:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderItemRequest'
+        type: array
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutResponse:
+    properties:
+      code:
+        type: string
+      message:
+        $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutMessage'
+      order_id:
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.DashboardData:
+    properties:
+      balance:
+        type: integer
+      offers:
+        items:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Offer'
+        type: array
+      orders:
+        items:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Order'
+        type: array
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.DashboardResponse:
+    properties:
+      code:
+        type: string
+      message:
+        $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.DashboardData'
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.LoginResponse:
+    properties:
+      auth:
+        type: string
+      code:
+        type: string
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.Offer:
+    properties:
+      category:
+        example: food
+        type: string
+      id:
+        example: 1
+        type: integer
+      name:
+        example: meat
+        type: string
+      price:
+        example: 100
+        type: integer
+      quantity:
+        example: 10
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.OffersResponse:
+    properties:
+      code:
+        type: string
+      message:
+        items:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Offer'
+        type: array
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.Order:
+    properties:
+      id:
+        type: integer
+      orderItems:
+        items:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderItem'
+        type: array
+      status:
+        type: string
+      total:
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderItem:
+    properties:
+      id:
+        example: 1
+        type: integer
+      orderID:
+        example: 1
+        type: integer
+      price:
+        example: 100
+        type: integer
+      productID:
+        example: 1
+        type: integer
+      quantity:
+        example: 10
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderItemRequest:
+    properties:
+      productID:
+        example: 1
+        type: integer
+      quantity:
+        example: 10
+        type: integer
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderStatus:
+    properties:
+      status:
+        type: string
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderStatusResponse:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+      order:
+        $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Order'
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response:
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.UpdateOrderStatusRequest:
+    properties:
+      status:
+        type: string
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.UpdateOrderStatusResponse:
+    properties:
+      code:
+        type: string
+      message:
+        $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderStatus'
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.UserLoginRequest:
+    properties:
+      email:
+        example: johndoe@example.com
+        type: string
+      password:
+        example: password123
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  github_com_ICOMP-UNC_newworld-manugcr_internal_models.UserRegisterRequest:
+    properties:
+      email:
+        example: johndoe@example.com
+        type: string
+      password:
+        example: password123
+        type: string
+      username:
+        example: johndoe
+        type: string
+    required:
+    - email
+    - password
+    - username
+    type: object
+host: localhost:3000
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: This is a sample Swagger for Fiber
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Fiber Example API
+  version: "1.0"
+paths:
+  /admin/dashboard:
+    get:
+      consumes:
+      - application/json
+      description: Get status of all market offers, orders, and balance
+      parameters:
+      - description: JWT <token>
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: dashboard
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.DashboardResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get status of all market
+      tags:
+      - admin
+  /admin/orders/{id}:
+    patch:
+      consumes:
+      - application/json
+      description: Update the status of a specific order by id
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: JWT <token>
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Order Status
+        in: body
+        name: status
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.UpdateOrderStatusRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: status
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.UpdateOrderStatusResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update status of a specific order
+      tags:
+      - admin
+  /auth/addoffer:
+    post:
+      consumes:
+      - application/json
+      description: Add a new offer to the available offers list
+      parameters:
+      - description: Offer
+        in: body
+        name: offer
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Offer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Offer added
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "400":
+          description: Invalid request payload
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      summary: Add a new offer
+      tags:
+      - auth
+  /auth/checkout:
+    post:
+      consumes:
+      - application/json
+      description: Buy a list of orders.
+      parameters:
+      - description: Checkout Request
+        in: body
+        name: checkout
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutRequest'
+      - description: JWT <token>
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.CheckoutResponse'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Checkout
+      tags:
+      - auth
+  /auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login a user with the given credentials
+      parameters:
+      - description: Login Request
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.UserLoginRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: JWT token
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.LoginResponse'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      summary: Login a user
+      tags:
+      - auth
+  /auth/offers:
+    get:
+      consumes:
+      - application/json
+      description: Get all available offers
+      parameters:
+      - description: JWT <token>
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: offers
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.OffersResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get available offers
+      tags:
+      - auth
+  /auth/orders/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get the status of a specific order by id
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: JWT <token>
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: status
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.OrderStatusResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get status of a specific order
+      tags:
+      - auth
+  /auth/register:
+    post:
+      consumes:
+      - application/json
+      description: Register a new user with the given details
+      parameters:
+      - description: User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.UserRegisterRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: User added
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "400":
+          description: Bad request
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+        "500":
+          description: Bad server
+          schema:
+            $ref: '#/definitions/github_com_ICOMP-UNC_newworld-manugcr_internal_models.Response'
+      summary: Register a new user
+      tags:
+      - auth
+swagger: "2.0"
