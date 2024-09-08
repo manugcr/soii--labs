@@ -83,7 +83,7 @@ sudo docker-compose up --build --remove-orphans
 ```
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/416f918f-516c-4a45-850b-913b1632d5cd"><br>
+  <img src="https://github.com/user-attachments/assets/e0afecdb-c851-487c-8188-c4964fb2dc44"><br>
   <em>Gif 1. API running</em>
 </p>
 
