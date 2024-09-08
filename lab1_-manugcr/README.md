@@ -40,7 +40,7 @@ But if you want to test the project, with multiple clients and one server, this 
 ```
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/bbd6a407-c043-4b3c-b283-ae6cf11b9f8b"><br>
+  <img src="https://github.com/user-attachments/assets/57fda7b0-d8b2-4c70-b0da-7c535020102a"><br>
   <em>Fig 1. Image of multiple clients</em>
 </p>
 
@@ -50,7 +50,7 @@ In this first gif we can see a normal execution of the program, where two **clie
 On the left we can see the server.log registering the activities of the users, the alerts and the emergencies.
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/e4b5c6e8-a3c6-415f-9b7a-3b22ad204114"><br>
+  <img src="https://github.com/user-attachments/assets/d1c5bfbb-46c0-4d73-8f57-11037a2d4099"><br>
   <em>Fig 2. Gif of supplies</em>
 </p>
 
@@ -59,7 +59,7 @@ Here we can see an example of the authentication process, where the user enters 
 Currently the server allows only two kinds of users `ubuntu ubuntu` and `hostname hostname` so any other combination of users credentials will be not be allowed to connect.
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/827a8db9-586a-47f2-86c8-cd175519f8d6"><br>
+  <img src="https://github.com/user-attachments/assets/29ad1cc1-9958-4a69-a00d-968eb9517965"><br>
   <em>Fig 3. Auth example</em>
 </p>
 
@@ -73,13 +73,13 @@ Most critical issues were fixed, but 2 of them are still present and accepted in
 One thing to future versions is to improve the coverage of the tests, it currently sits a 8%. But being on the deadline of the 4th weekly version, i could not improve it.
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/5c23f6af-7a2b-4850-8113-44f641117add"><br>
+  <img src="https://github.com/user-attachments/assets/87ba13cb-2ea3-4b8d-975c-4a4ac9c11291"><br>
   <em>Fig 4. Sonarqube summary</em>
 </p>
 
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/e3994046-eeb2-4c28-a23d-9e0fe9fd1056"><br>
+  <img src="https://github.com/user-attachments/assets/43ee5dc6-6621-4c22-97b6-019532f4a212"><br>
   <em>Fig 5. Accepted issues</em>
 </p>
 
@@ -88,7 +88,10 @@ One thing to future versions is to improve the coverage of the tests, it current
 ## Added unit tests
 Improved coverage on alerts, emergency and supplies libraries
 
-![image](https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/84b43152-f06b-46c9-965e-7543c4a7c78f)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/95819ba4-6383-42c0-8a6c-c62ba0b0564f"><br>
+  <em>Fig 6. Unit tests.</em>
+</p>
 
 ```bash
 ------------------------------------------------------------------------------
@@ -110,11 +113,11 @@ TOTAL                                        246     176    71%
 ---
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/0d9f990b-98de-4e26-b2f4-7af45133792f" alt="Diagrama de secuencias"><br>
-  <em>Fig 1. Sequence diagram of a running example</em>
+  <img src="https://github.com/user-attachments/assets/cbcb7477-4a0b-4818-81bf-42bb77dffc46" alt="Diagrama de secuencias"><br>
+  <em>Fig 7. Sequence diagram of a running example</em>
 </p>
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/lab1_-manugcr/assets/20894332/9c7567ef-8d87-4843-b38e-7bf66d5f0075" alt="Diagrama de secuencias"><br>
-  <em>Fig 2. Flowchart of the project</em>
+  <img src="https://github.com/user-attachments/assets/649e1f80-4ba6-4d5c-8925-fdf5216ff252" alt="Diagrama de secuencias"><br>
+  <em>Fig 8. Flowchart of the project</em>
 </p>
