@@ -33,21 +33,21 @@ To run the project i have created some scripts to make it easier. You can run th
 Here you can see a gif of the server running and the clients connecting to it. In this gif as an example two users connect via terminal and modify and request for the supplies
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/h-p-cpp-hope-programming-cpp-manugcr/assets/20894332/4b1a01e9-b2a6-409b-8a77-0690d05c8df6"><br>
+  <img src="https://github.com/user-attachments/assets/ac2922ac-98f5-400c-908a-f1e4654e4f36"><br>
   <em>Fig 1. Clients connecting via terminal.</em>
 </p>
 
 Alternatively you can use the server via http via `localhost:8082/root` here you can see a gif of a client connecting to the server via http and modify the supplies.
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/h-p-cpp-hope-programming-cpp-manugcr/assets/20894332/e142b5e1-8e4b-4c8b-b8ba-b1ffd991afc8"><br>
+  <img src="https://github.com/user-attachments/assets/f56a51d9-a1cd-4e12-9c9d-39d9ebf398b0"><br>
   <em>Fig 2. Web server</em>
 </p>
 
 In this release the server is able to process a satellite image using canny edge filter submodule, and its able to sent it via sockets to a client. Here you can see a client requesting the image to the server and the server processing it, and then sending it via sockets as a zip file, that is compressed and decompressed.
 
 <p align="center">
-  <img src="https://github.com/ICOMP-UNC/h-p-cpp-hope-programming-cpp-manugcr/assets/20894332/4fb186bd-85f5-413a-a646-4148f181fd2f"><br>
+  <img src="https://github.com/user-attachments/assets/e0f579df-3179-4aa1-8d6a-7f677a0d36a6"><br>
   <em>Fig 3. Image processing</em>
 </p>
 
